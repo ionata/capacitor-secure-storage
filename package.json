@@ -1,6 +1,6 @@
 {
-  "name": "@aparajita/capacitor-secure-storage",
-  "version": "4.0.0",
+  "name": "@avioli/capacitor-secure-storage",
+  "version": "4.0.1",
   "description": "Capacitor 4+ plugin that provides secure storage for the iOS and Android",
   "author": "Aparajita Fishman",
   "license": "MIT",
@@ -65,10 +65,10 @@
   "swiftlint": "@ionic/swiftlint-config",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aparajita/capacitor-secure-storage.git"
+    "url": "https://github.com/avioli/capacitor-secure-storage.git"
   },
   "bugs": {
-    "url": "https://github.com/aparajita/capacitor-secure-storage/issues"
+    "url": "https://github.com/avioli/capacitor-secure-storage/issues"
   },
   "devDependencies": {
     "@aparajita/eslint-config-base": "^1.1.5",
