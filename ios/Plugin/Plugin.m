@@ -8,4 +8,6 @@ CAP_PLUGIN(SecureStorage, "SecureStorage",
   CAP_PLUGIN_METHOD(internalRemoveItem, CAPPluginReturnPromise);
   CAP_PLUGIN_METHOD(clearItemsWithPrefix, CAPPluginReturnPromise);
   CAP_PLUGIN_METHOD(getPrefixedKeys, CAPPluginReturnPromise);
+  CAP_PLUGIN_METHOD(internalGetServiceName, CAPPluginReturnPromise);
+  CAP_PLUGIN_METHOD(internalSetServiceName, CAPPluginReturnPromise);
 )

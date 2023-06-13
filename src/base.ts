@@ -37,6 +37,10 @@ export interface SecureStoragePluginNative {
   clearItemsWithPrefix: (options: { prefix: string }) => Promise<void>
 
   getPrefixedKeys: (options: { prefix: string }) => Promise<{ keys: string[] }>
+
+  internalGetServiceName: () => Promise<{ name: string }>
+
+  internalSetServiceName: (options: { name: string }) => Promise<void>
 }
 
 // eslint-disable-next-line import/prefer-default-export
@@ -228,6 +232,34 @@ export abstract class SecureStorageBase
 
   protected prefixedKey(key: string): string {
     return this.prefix + key
+  }
+
+  // @native
+  protected abstract internalGetServiceName(): Promise<{ name: string }>
+
+  // @native
+  protected abstract internalSetServiceName(options: {
+    name: string
+  }): Promise<void>
+
+  async getServiceName(): Promise<string> {
+    if (Capacitor.getPlatform() === 'ios') {
+      const { name } = await this.internalGetServiceName()
+      return name
+    }
+
+    // no-op on other platforms
+    return Promise.resolve('')
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async setServiceName(name: string): Promise<void> {
+    if (Capacitor.getPlatform() === 'ios') {
+      await this.internalSetServiceName({ name })
+    }
+
+    // no-op on other platforms
+    return Promise.resolve()
   }
 
   protected static missingKey(): never {

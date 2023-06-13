@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core'
 import { SecureStorageBase } from './base'
 import type { SecureStoragePlugin } from './definitions'
 
@@ -17,6 +18,11 @@ export class SecureStorageNative extends SecureStorageBase {
     this.internalRemoveItem = proxy.internalRemoveItem
     this.clearItemsWithPrefix = proxy.clearItemsWithPrefix
     this.getPrefixedKeys = proxy.getPrefixedKeys
+
+    if (Capacitor.getPlatform() === 'ios') {
+      this.internalGetServiceName = proxy.internalGetServiceName
+      this.internalSetServiceName = proxy.internalSetServiceName
+    }
     /* eslint-enable */
   }
 
@@ -79,5 +85,19 @@ export class SecureStorageNative extends SecureStorageBase {
     sync: boolean
   }): Promise<{ keys: string[] }> {
     return Promise.resolve({ keys: [] })
+  }
+
+  // @native
+  // eslint-disable-next-line @typescript-eslint/require-await
+  protected async internalGetServiceName(): Promise<{ name: string }> {
+    return { name: '' }
+  }
+
+  // @native
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected async internalSetServiceName(options: {
+    name: string
+  }): Promise<void> {
+    //
   }
 }

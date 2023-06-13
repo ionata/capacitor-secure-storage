@@ -26,6 +26,8 @@ open class KeychainSwift {
 
   /// Contains result code from the last operation. Value is noErr (0) for a successful result.
   open var lastResultCode: OSStatus = noErr
+  
+  open var serviceName: String = ""
 
   var keyPrefix = "" // Can be useful in test.
 
@@ -114,6 +116,10 @@ open class KeychainSwift {
       KeychainSwiftConstants.valueData: value,
       KeychainSwiftConstants.accessible: accessible
     ]
+    
+    if !serviceName.isEmpty {
+      query[KeychainSwiftConstants.attrService] = serviceName
+    }
 
     query = addAccessGroupWhenPresent(query)
     query = addSynchronizableIfRequired(query, addingItems: true)
@@ -193,6 +199,10 @@ open class KeychainSwift {
       query[KeychainSwiftConstants.returnReference] = kCFBooleanTrue
     } else {
       query[KeychainSwiftConstants.returnData] =  kCFBooleanTrue
+    }
+
+    if !serviceName.isEmpty {
+      query[KeychainSwiftConstants.attrService] = serviceName
     }
 
     query = addAccessGroupWhenPresent(query)

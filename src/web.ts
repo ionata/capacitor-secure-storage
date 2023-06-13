@@ -74,4 +74,18 @@ export class SecureStorageWeb extends SecureStorageBase {
 
     return Promise.resolve({ keys })
   }
+
+  // @native
+  // eslint-disable-next-line @typescript-eslint/require-await
+  protected async internalGetServiceName(): Promise<{ name: string }> {
+    return { name: '' }
+  }
+
+  // @native
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected async internalSetServiceName(options: {
+    name: string
+  }): Promise<void> {
+    //
+  }
 }

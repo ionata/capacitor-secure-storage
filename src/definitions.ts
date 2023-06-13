@@ -87,6 +87,28 @@ export interface SecureStoragePlugin extends WebPlugin {
   getKeyPrefix: () => Promise<string>
 
   /**
+   * iOS only
+   *
+   * Set the iOS Keychain service attribute. You may change the service name
+   * by calling this method (an empty name is valid). Usually you will always
+   * set the service name before calling any methods that modify the store.
+   * A no-op on other platforms.
+   *
+   * @since 4.0.0
+   */
+  setServiceName: (name: string) => Promise<void>
+
+  /**
+   * iOS only
+   *
+   * Returns the current service name.
+   *
+   * @since 4.0.0
+   * @default ''
+   */
+  getServiceName: () => Promise<string>
+
+  /**
    * Returns a list of all keys which have the current storage prefix.
    * The returned keys are stripped of the prefix.
    *

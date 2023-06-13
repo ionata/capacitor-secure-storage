@@ -61,6 +61,16 @@ public class SecureStorage: CAPPlugin {
       call.resolve(["keys": keychain.allKeys.filter { $0.starts(with: prefix) }])
     })
   }
+    
+  @objc func internalGetServiceName(_ call: CAPPluginCall) {
+    call.resolve(["name": keychain.serviceName])
+  }
+
+  @objc func internalSetServiceName(_ call: CAPPluginCall) {
+    let name = call.getString("name") ?? ""
+    keychain.serviceName = name
+    call.resolve()
+  }
 
   func getKeyParam(from call: CAPPluginCall) -> String? {
     if let key = call.getString(kKeyOption),
