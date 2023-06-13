@@ -1,6 +1,6 @@
 {
   "name": "@ionata/capacitor-secure-storage",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Capacitor 4+ plugin that provides secure storage for the iOS and Android",
   "author": "Aparajita Fishman",
   "license": "MIT",
