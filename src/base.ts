@@ -2,7 +2,7 @@ import { Capacitor, WebPlugin } from '@capacitor/core'
 import type {
   DataType,
   SecureStoragePlugin,
-  StorageResultError
+  StorageResultError,
 } from './definitions'
 import { StorageErrorType } from './definitions'
 
@@ -80,7 +80,7 @@ export abstract class SecureStorageBase
     if (key) {
       const { data } = await this.internalGetItem({
         prefixedKey: this.prefixedKey(key),
-        sync: sync ?? this.sync
+        sync: sync ?? this.sync,
       })
 
       if (data === null) {
@@ -110,7 +110,7 @@ export abstract class SecureStorageBase
     if (key) {
       const { data } = await this.internalGetItem({
         prefixedKey: this.prefixedKey(key),
-        sync: this.sync
+        sync: this.sync,
       })
 
       return data
@@ -141,7 +141,7 @@ export abstract class SecureStorageBase
       return this.internalSetItem({
         prefixedKey: this.prefixedKey(key),
         data: JSON.stringify(convertedData),
-        sync: sync ?? this.sync
+        sync: sync ?? this.sync,
       })
     }
 
@@ -153,7 +153,7 @@ export abstract class SecureStorageBase
       return this.internalSetItem({
         prefixedKey: this.prefixedKey(key),
         data: value,
-        sync: this.sync
+        sync: this.sync,
       })
     }
 
@@ -171,7 +171,7 @@ export abstract class SecureStorageBase
     if (key) {
       const { success } = await this.internalRemoveItem({
         prefixedKey: this.prefixedKey(key),
-        sync: sync ?? this.sync
+        sync: sync ?? this.sync,
       })
       return success
     }
@@ -183,7 +183,7 @@ export abstract class SecureStorageBase
     if (key) {
       await this.internalRemoveItem({
         prefixedKey: this.prefixedKey(key),
-        sync: this.sync
+        sync: this.sync,
       })
 
       return
@@ -209,7 +209,7 @@ export abstract class SecureStorageBase
   async keys(sync?: boolean): Promise<string[]> {
     const { keys } = await this.getPrefixedKeys({
       prefix: this.prefix,
-      sync: sync ?? this.sync
+      sync: sync ?? this.sync,
     })
     const prefixLength = this.prefix.length
     return keys.map((key) => key.slice(prefixLength))
