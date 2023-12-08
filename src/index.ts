@@ -14,5 +14,4 @@ const proxy = registerPlugin<SecureStoragePlugin>('SecureStorage', {
 })
 
 export * from './definitions'
-export { StorageError } from './base'
 export { proxy as SecureStorage }
