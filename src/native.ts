@@ -1,6 +1,6 @@
 import { Capacitor } from '@capacitor/core'
 import { SecureStorageBase } from './base'
-import type { SecureStoragePlugin } from './definitions'
+import type { KeychainAccess, SecureStoragePlugin } from './definitions'
 
 // eslint-disable-next-line import/prefer-default-export
 export class SecureStorageNative extends SecureStorageBase {
@@ -49,6 +49,7 @@ export class SecureStorageNative extends SecureStorageBase {
     prefixedKey: string
     data: string
     sync: boolean
+    access: KeychainAccess
   }): Promise<void> {
     return Promise.resolve()
   }
