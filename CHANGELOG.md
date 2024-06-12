@@ -1,6 +1,97 @@
 # Changelog
 
+NOTE: this is a forked repo and the changelog displays changes from upstream that are not always reflecting this repo.
+
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [6.0.0](https://github.com/aparajita/capacitor-secure-storage/compare/v5.2.0...v6.0.0) (2024-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* stop supporting API 22
+* update to Capacitor 6
+
+### Features
+
+* stop supporting API 22 ([86c2989](https://github.com/aparajita/capacitor-secure-storage/commit/86c2989dfc7067fe0059168f4562698aea7318ec))
+* update to Capacitor 6 ([bb6c5a8](https://github.com/aparajita/capacitor-secure-storage/commit/bb6c5a8c15729d925fc1c005d22303906d6b0856))
+
+
+### Maintenance
+
+* prettier ([a28f0f0](https://github.com/aparajita/capacitor-secure-storage/commit/a28f0f05e5984f13cfeff68c6e91a277d6d1560f))
+* remove the mutex, not necessary ([abdb559](https://github.com/aparajita/capacitor-secure-storage/commit/abdb559626bec8093e4c3a1d27727245b421354d))
+
+## [5.2.0](https://github.com/aparajita/capacitor-secure-storage/compare/v5.1.0...v5.2.0) (2024-03-18)
+
+
+### Features
+
+* use a mutex to ensure no race conditions ([39bc00d](https://github.com/aparajita/capacitor-secure-storage/commit/39bc00d4450df685e37fc029b93962eea9c03ea8))
+
+
+### Maintenance
+
+* update deps ([c7adaef](https://github.com/aparajita/capacitor-secure-storage/commit/c7adaefcbeaa70d8d8bca9c66c6632f198c8c571))
+* use pod version of KeychainSwift ([8098367](https://github.com/aparajita/capacitor-secure-storage/commit/80983675923f66a29f9026251171a573b0e116c0))
+
+## [5.1.0](https://github.com/aparajita/capacitor-secure-storage/compare/v5.0.0...v5.1.0) (2024-02-28)
+
+
+### Features
+
+* add support for keychain access ([eb5866f](https://github.com/aparajita/capacitor-secure-storage/commit/eb5866f5e43cee06a7f7e0f694967888853f8efc))
+
+
+### Maintenance
+
+* don’t use unimplemented ([da6e0ff](https://github.com/aparajita/capacitor-secure-storage/commit/da6e0ff0c6cd7775012f518100a789bd7fa30d28))
+* lint/format updates ([1f52391](https://github.com/aparajita/capacitor-secure-storage/commit/1f52391088c95a2c3abc36474bd9de71aa30f4ab))
+* update deps ([4f99ea3](https://github.com/aparajita/capacitor-secure-storage/commit/4f99ea3dc9b67b02ed4b44dd169b5cf7ab0bec44))
+
+## [5.0.0](https://github.com/aparajita/capacitor-secure-storage/compare/v4.0.0...v5.0.0) (2023-12-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Storage calls that are implemented on the current platform now throw an instance of StorageError. This provides better typing, as you can use `instanceof StorageError` to narrow a caught error to StorageError, then compare error.code against StorageErrorType, which is now a string.
+
+### Features
+
+* throw StorageError instance from storage ops ([a34dbe3](https://github.com/aparajita/capacitor-secure-storage/commit/a34dbe3f2b0f533e7c0712fa718674ac4e5848bb))
+
+
+### Bug Fixes
+
+* notFound is no longer returned as an error ([31cbfe9](https://github.com/aparajita/capacitor-secure-storage/commit/31cbfe9726e72ea74b00fc46f31ac26fafb396ca))
+* return null if entry is missing in KeyStore ([9cf5d4d](https://github.com/aparajita/capacitor-secure-storage/commit/9cf5d4da67a09637e8db2d17c3dac9338f900e83))
+
+
+### Maintenance
+
+* prettier ([4dc4e20](https://github.com/aparajita/capacitor-secure-storage/commit/4dc4e20131d916e9b1cfbebb301ab32f2c0bc28a))
+* remove unused notFound ([0a2376a](https://github.com/aparajita/capacitor-secure-storage/commit/0a2376a3581199835c02f4210735112850e904d4))
+* update deps ([6eb5ff4](https://github.com/aparajita/capacitor-secure-storage/commit/6eb5ff4499b622dd29c94e60eca8e4a5df3f97a8))
+* update deps ([72dc9c0](https://github.com/aparajita/capacitor-secure-storage/commit/72dc9c06ea50855efd9b3d98609c7d38ae0a98f3))
+
+## [4.0.0](https://github.com/aparajita/capacitor-secure-storage/compare/v3.0.2...v4.0.0) (2023-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* The plugin now requires Capacitor 5.
+
+### Features
+
+* upgrade to Capacitor 5 ([2386df5](https://github.com/aparajita/capacitor-secure-storage/commit/2386df5a018779e1319ed373dd4409f461547c57))
+
+
+### Maintenance
+
+* don’t log name + version at startup ([0f636e9](https://github.com/aparajita/capacitor-secure-storage/commit/0f636e9bb8e3fb463cca58bb1c6618541cb56bff))
+* no more husky ([2986725](https://github.com/aparajita/capacitor-secure-storage/commit/29867255b3e582b674acb90f55ca259c1233de84))
+* update dev environment ([19fada5](https://github.com/aparajita/capacitor-secure-storage/commit/19fada5c737780b60224ebbe8fd3c13b9183e3c4))
 
 ## [3.0.2](https://github.com/aparajita/capacitor-secure-storage/compare/v3.0.1...v3.0.2) (2023-05-03)
 
