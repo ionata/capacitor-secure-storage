@@ -3,7 +3,7 @@ import type { DataType, SecureStoragePlugin } from './definitions'
 import { StorageError, StorageErrorType } from './definitions'
 
 function isStorageErrorType(
-  value: string | undefined
+  value: string | undefined,
 ): value is keyof typeof StorageErrorType {
   return value !== undefined && Object.keys(StorageErrorType).includes(value)
 }
@@ -83,14 +83,14 @@ export abstract class SecureStorageBase
   async get(
     key: string,
     convertDate = true,
-    sync?: boolean
+    sync?: boolean,
   ): Promise<DataType | null> {
     if (key) {
       const { data } = await this.tryOperation(async () =>
         this.internalGetItem({
           prefixedKey: this.prefixedKey(key),
           sync: sync ?? this.sync,
-        })
+        }),
       )
 
       if (data === null) {
@@ -122,7 +122,7 @@ export abstract class SecureStorageBase
         this.internalGetItem({
           prefixedKey: this.prefixedKey(key),
           sync: this.sync,
-        })
+        }),
       )
 
       return data
@@ -141,7 +141,7 @@ export abstract class SecureStorageBase
     key: string,
     data: DataType,
     convertDate = true,
-    sync?: boolean
+    sync?: boolean,
   ): Promise<void> {
     if (key) {
       let convertedData = data
@@ -155,7 +155,7 @@ export abstract class SecureStorageBase
           prefixedKey: this.prefixedKey(key),
           data: JSON.stringify(convertedData),
           sync: sync ?? this.sync,
-        })
+        }),
       )
     }
 
@@ -169,7 +169,7 @@ export abstract class SecureStorageBase
           prefixedKey: this.prefixedKey(key),
           data: value,
           sync: this.sync,
-        })
+        }),
       )
     }
 
@@ -189,7 +189,7 @@ export abstract class SecureStorageBase
         this.internalRemoveItem({
           prefixedKey: this.prefixedKey(key),
           sync: sync ?? this.sync,
-        })
+        }),
       )
 
       return success
@@ -204,7 +204,7 @@ export abstract class SecureStorageBase
         this.internalRemoveItem({
           prefixedKey: this.prefixedKey(key),
           sync: this.sync,
-        })
+        }),
       )
 
       return
@@ -232,7 +232,7 @@ export abstract class SecureStorageBase
       this.getPrefixedKeys({
         prefix: this.prefix,
         sync: sync ?? this.sync,
-      })
+      }),
     )
 
     const prefixLength = this.prefix.length

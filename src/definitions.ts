@@ -148,7 +148,7 @@ export interface SecureStoragePlugin extends WebPlugin {
   get: (
     key: string,
     convertDate?: boolean,
-    sync?: boolean
+    sync?: boolean,
   ) => Promise<DataType | null>
 
   /**
@@ -181,7 +181,7 @@ export interface SecureStoragePlugin extends WebPlugin {
     key: string,
     data: DataType,
     convertDate?: boolean,
-    sync?: boolean
+    sync?: boolean,
   ) => Promise<void>
 
   /**

@@ -67,7 +67,7 @@ export class SecureStorageNative extends SecureStorageBase {
       this.clearItemsWithPrefix({
         prefix: this.prefix,
         sync: sync ?? this.sync,
-      })
+      }),
     )
   }
 
